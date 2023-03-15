@@ -10,6 +10,7 @@ from settings import *
 from sprites import *
 # from pg.sprite import Sprite
 # okokokokokokokokokokokokokokoko
+# okkokookokoookookokkokook
 
 # set up assets folders
 game_folder = os.path.dirname(__file__)
