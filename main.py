@@ -11,6 +11,7 @@ from sprites import *
 # from pg.sprite import Sprite
 # okokokokokokokokokokokokokokoko
 # okkokookokoookookokkokook yeah yeah yeah testing even more 
+vec = pg.math.Vector2
 
 # set up assets folders
 game_folder = os.path.dirname(__file__)
@@ -32,6 +33,9 @@ clock = pg.time.Clock()
 # play is instantiated here
 player= Player()
 Invader = Mob()
+Invader.vel = vec(randint(8,80),randint(8,80))
+
+
 
 
 all_sprites = pg.sprite.Group()
@@ -46,7 +50,11 @@ pewpews = pg.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(Invader)
 # all_sprites.add(testSprite)
-
+for i in range (0,10):
+    m=Mob()
+    m.vel = vec(randint(8,80),randint(8,80))
+    all_sprites.add(m)
+    enemies.add (m)
 # game loop
 
 while RUNNING:
