@@ -8,6 +8,7 @@ import os
 # import settings 
 from settings import *
 from sprites import *
+from random import randint
 # from pg.sprite import Sprite
 # okokokokokokokokokokokokokokoko
 # okkokookokoookookokkokook yeah yeah yeah testing even more 
