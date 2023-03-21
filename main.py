@@ -33,7 +33,9 @@ clock = pg.time.Clock()
 
 # play is instantiated here
 player= Player()
+player.rect.x = 5
 Invader = Mob()
+Invader.image.fill((0,0,255))
 Invader.vel = vec(randint(8,80),randint(8,80))
 
 
@@ -71,9 +73,9 @@ while RUNNING:
     ### update section of game loop (if updates take longer the 1/30th of a second, you will get laaaaag...)
     all_sprites.update()
 
-    blocks_hit_list = pg.sprite.spritecollide(player, enemies, True)
+    blocks_hit_list = pg.sprite.spritecollide(player, enemies, False)
     for block in blocks_hit_list:
-        # print(enemies)
+        print(enemies)
         pass
     ### draw and render section of game loop
     screen.fill(BLUE)
