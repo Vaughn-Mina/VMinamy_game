@@ -9,6 +9,7 @@ import os
 from settings import *
 from sprites import *
 from random import randint
+from os import path
 # from pg.sprite import Sprite
 # okokokokokokokokokokokokokokoko
 # okkokookokoookookokkokook yeah yeah yeah testing even more 
@@ -16,14 +17,15 @@ vec = pg.math.Vector2
 
 # set up assets folders
 game_folder = os.path.dirname(__file__)
-img_folder = os.path.join(game_folder, "img")
+img_folder = os.path.join(game_folder, "images")
+
 
 def get_mouse_now():
     x,y = pg.mouse.get_pos()
     return (x,y)
 
 
-# init pg and create window
+# init pygame display
 pg.init()
 # init sound mixer
 pg.mixer.init()
@@ -31,20 +33,26 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("My first game...")
 clock = pg.time.Clock() 
 
+player_img = pg.image.load(path.join(img_folder, "bell-ar-man.png")).convert()
+
+all_sprites = pg.sprite.Group()
+enemies = pg.sprite.Group()
+player = Player(player_img)
+pewpews = pg.sprite.Group()
+
 # play is instantiated here
-player= Player()
+player= Player(player_img)
 player.rect.x = 5
 Invader = Mob()
 Invader.image.fill((0,0,255))
 Invader.vel = vec(randint(8,80),randint(8,80))
 
+for i in range (0,10):
+    m=Mob()
+    m.vel = vec(randint(10,50),randint(10,50))
+    all_sprites.add(m)
+    enemies.add (m)
 
-
-
-all_sprites = pg.sprite.Group()
-enemies = pg.sprite.Group()
-player = Player()
-pewpews = pg.sprite.Group()
 # testSprite = Sprite()
 # testSprite.image = pg.Surface((50,50))
 # testSprite.image.fill(GREEN)
@@ -53,11 +61,7 @@ pewpews = pg.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(Invader)
 # all_sprites.add(testSprite)
-for i in range (0,10):
-    m=Mob()
-    m.vel = vec(randint(8,80),randint(8,80))
-    all_sprites.add(m)
-    enemies.add (m)
+
 # game loop
 
 while RUNNING:
@@ -80,6 +84,7 @@ while RUNNING:
     ### draw and render section of game loop
     screen.fill(BLUE)
     all_sprites.draw(screen)
+    screen.blit(player_img,player.rect)
     # double buffering draws frames for entire screen
     pg.display.flip()
     # pg.display.update() -> only updates a portion of the screen
