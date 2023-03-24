@@ -14,7 +14,10 @@ PLAYER_FRICTION = -0.12
 MOB_FRICTION = -0.13
 MOB_REVERSE_FRICTION = 0.14
 
+# determines font size
+# font_name = "Comic Sans"
 # colors
 BLACK = (0,0,0)
 BLUE = (50,50,255)
 RED = (255, 50, 50)
+WHITE = (255,255,255)
