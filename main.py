@@ -26,19 +26,20 @@ class Game:
         pg.display.set_caption("My Game...")
         self.clock = pg.time.Clock()
         self.running = True
-# method to create a new game
+    # method to create a new game...
     def new(self):
             self.score = 0
             self.all_sprites = pg.sprite.Group()
             self.platforms = pg.sprite.Group()
             self.enemies = pg.sprite.Group()
-            # instantiates player class from sprites file, and passes this game class as an argument
+            # instantiates player class from sprites file, and passes this game class as
+            # an argument
             self.player = Player(self)
             self.all_sprites.add(self.player)
             for i in range(1,10):
                 e = Mob()
                 self.all_sprites.add(e)
-            self.run()
+            self.run()  
     def run(self):
         self.playing = True
         while self.playing:
@@ -57,8 +58,8 @@ class Game:
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_SPACE:
                     self.player.jump()
-    def draw_text(text, size, color, x, y, self):
-        font_name = pg.font.match_font("arial")
+    def draw_text(self, text, size, color, x, y):
+        font_name = pg.font.match_font('arial')
         font = pg.font.Font(font_name, size)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect()
@@ -67,14 +68,11 @@ class Game:
     # def get_mouse_now():
     #     x,y = pg.mouse.get_pos()
     #     return (x,y)
-
-    # updates status of sprites 
     def update(self):
         self.all_sprites.update()
-    # draws the sprites and screen 
     def draw(self):
         self.screen.fill(BLUE)
-        self.draw_text("Yo what is up", 42, WIDTH/2, HEIGHT/10)
+        self.draw_text("Yo what is up", 42, WHITE, WIDTH/2, HEIGHT/10)
         self.all_sprites.draw(self.screen)
         pg.display.flip()
 
@@ -82,8 +80,9 @@ vec = pg.math.Vector2
 
 # game loop
 # instantiated the class
+# statement is true
 g = Game()
-# just true
+
 while g.running:
     g.new()
 
