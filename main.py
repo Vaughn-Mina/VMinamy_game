@@ -35,7 +35,16 @@ class Game:
             # instantiates player class from sprites file, and passes this game class as
             # an argument
             self.player = Player(self)
+            self.plat1 = Platform(0, HEIGHT-25, WIDTH, 25)
+            self.plat2 = Platform(50, 400, 150, 75)
+            # self.plat3 = Platform(0,0, 50, 1000)
             self.all_sprites.add(self.player)
+            self.all_sprites.add(self.plat1)
+            self.platforms.add(self.plat1)
+            self.all_sprites.add(self.plat2)
+            self.platforms.add(self.plat2)
+            # self.all_sprites.add(self.plat3)
+            # self.platforms.add(self.plat3)
             for i in range(1,10):
                 e = Mob()
                 self.all_sprites.add(e)
@@ -70,6 +79,18 @@ class Game:
     #     return (x,y)
     def update(self):
         self.all_sprites.update()
+        if self.player.vel.y > 0:
+            hits = pg.sprite.spritecollide(self.player, self.platforms, False)
+            if hits:
+                print("I've collide with a platform")
+                self.player.pos.y = hits[0].rect.top
+                self.player.vel.y = 0
+        # if self.player.vel.x > 0:
+        #     hits = pg.sprite.spritecollide(self.player, self.platforms, False)
+        #     if hits:
+        #         print ("I have hit a wall")
+        #         self.player.pos.x = hits[0].rect.left
+        #         self.player.vel.x = 0
     def draw(self):
         self.screen.fill(BLUE)
         self.draw_text("Yo what is up", 42, WHITE, WIDTH/2, HEIGHT/10)

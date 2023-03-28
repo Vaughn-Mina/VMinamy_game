@@ -27,27 +27,30 @@ class Player(Sprite):
         self.canjump = False
     def input(self):
         keystate = pg.key.get_pressed()
-        if keystate[pg.K_w]:
-            self.acc.y = -PLAYER_ACC
+        # if keystate[pg.K_w]:
+        #     self.acc.y = -PLAYER_ACC
         if keystate[pg.K_a]:
             self.acc.x = -PLAYER_ACC
-        if keystate[pg.K_s]:
-            self.acc.y = PLAYER_ACC
+        # if keystate[pg.K_s]:
+        #     self.acc.y = PLAYER_ACC
         if keystate[pg.K_d]:
             self.acc.x = PLAYER_ACC
-    # def jump(self):
-    #     # jump only if standing on a platform
-    #     self.rect.x += 1
-    #     hits = pg.sprite.spritecollide(self, self.game.platforms, False)
-    #     self.rect.x -= 1
-    #     if hits:
-    #         self.vel.y = -PLAYER_JUMP
+    def jump(self):
+        # jump only if standing on a platform
+        self.rect.x += 1
+        hits = pg.sprite.spritecollide(self, self.game.platforms, False)
+        self.rect.x -= 1
+        if hits:
+            self.vel.y = -PLAYER_JUMP
     def update(self):
-        self.acc = self.vel * PLAYER_FRICTION
+        self.acc = vec(0, PLAYER_GRAVITY)
+        
+        self.acc.x = self.vel.x * PLAYER_FRICTION
         self.input()
         self.vel += self.acc
         self.pos += self.vel + 0.5 * self.acc
-        self.rect.center = self.pos
+        self.rect.midbottom = self.pos
+        # test to see if off screen
         if self.rect.x > WIDTH:
             print("I'm off the right screen...")
         if self.rect.x < 0:
@@ -76,3 +79,13 @@ class Mob(Sprite):
         self.behavior()
         self.pos += self.vel
         self.rect.center = self.pos
+
+class Platform(Sprite):
+    def __init__(self, x, y, w, h):
+        Sprite.__init__(self)
+        self.image = pg.Surface((w,h))
+        self.image.fill(GREEN)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
