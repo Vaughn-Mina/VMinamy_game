@@ -6,6 +6,7 @@ from pygame.sprite import Sprite
 
 from settings import *
 
+from random import randint
 vec = pg.math.Vector2
 
 
@@ -63,7 +64,7 @@ class Mob(Sprite):
         self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.pos = vec(WIDTH/2, HEIGHT/2)
-        self.vel = vec(0,0)
+        self.vel = vec(randint(1,5),randint(1,5))
         self.acc = vec(0,0)
         self.cofric = 0.1
         self.canjump = False
