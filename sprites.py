@@ -32,6 +32,8 @@ class Player(Sprite):
         #     self.acc.y = PLAYER_ACC
         if keystate[pg.K_d]:
             self.acc.x = PLAYER_ACC
+        if keystate[pg.K_LCTRL]:
+            self.acc.x = DASH
         # if keystate[pg.K_p]:
         #     if PAUSED == False:
         #         PAUSED = True
