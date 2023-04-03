@@ -1,23 +1,31 @@
 # File created by: Chris Cozort but modified by Vaughn Mina
 # Agenda:
 # gIT GITHUB    
-# Build file and folder structures
+# Build file and folder structuresa
 # Create libraries
 # testing github changes
 # I changed something - I changed something else tooooo!
 
 # This file was created by: Chris Cozort
 # Sources: http://kidscancode.org/blog/2016/08/pygame_1-1_getting-started/
-# Sources: 
+# Sources: https://stackoverflow.com/questions/66296474/how-could-i-make-a-dash-in-a-2d-pygame-python-program#:~:text=def%20dash%20%28self%29%3A%20keys%20%3D%20pygame.keys.get_pressed%20%28%29%20if,else%20you%20will%20be%20able%20to%20dash%20forever.
+# Sources: https://stackoverflow.com/questions/51604302/rng-for-my-text-based-game-in-python3#:~:text=rng%20%3D%20random.randint%20%281%2C%20101%29%20Switch%20a%20variable,range%20to%20minimize%20errors%2C%201-2%20rather%20than%201-101
 
 '''
 My goal is:
 
-add a dash or teleport (probably dash)
-a movement ability that allows the player to move quicker in any direction
+add a dash or teleport (probably dash) (Done)
+-a movement ability that allows the player to move quicker in any direction
+add a float/fly ability (on pause for now)
+-movement ability that allows the player to move throughout the screen (probably for a short duration)
+add enemies randomly dashing in any direction
+
+
+
 
 Reach goal:
 add key command that moves character certain distance 
+assign values to dash directions
 '''
 
 # import libs

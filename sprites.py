@@ -2,6 +2,7 @@ import pygame as pg
 from pygame.sprite import Sprite
 from settings import *
 from random import randint
+from random import random
 
 
 vec = pg.math.Vector2
@@ -33,7 +34,20 @@ class Player(Sprite):
         if keystate[pg.K_d]:
             self.acc.x = PLAYER_ACC
         if keystate[pg.K_LCTRL]:
-            self.acc.x = DASH
+            if keystate[pg.K_d]:
+                self.pos.x += DASHDISTANCE
+                print("I dashed to the right")
+            if keystate[pg.K_a]:
+                self.pos.x -= DASHDISTANCE
+                print("I dashed to the left")
+            if keystate[pg.K_w]:
+                self.pos.y -= DASHDISTANCE
+                print("I dashed upwards")
+            if keystate[pg.K_s]:
+                self.pos.y += DASHDISTANCE
+                print("I dashed downwards")
+        # if keystate[pg.K_LALT]:
+
         # if keystate[pg.K_p]:
         #     if PAUSED == False:
         #         PAUSED = True
@@ -110,7 +124,11 @@ class Mob(Sprite):
         # self.pos.y += self.vel.y
         self.pos += self.vel
         self.rect.center = self.pos
-
+    def dash(self):
+        for rng in range(1):
+            rng = random.randint[0,100]
+            if rng >=0 and rng <= 25:
+                self.pos.x += MOB_DASH
 # create a new platform class...
 
 class Platform(Sprite):
