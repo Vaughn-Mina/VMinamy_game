@@ -3,7 +3,7 @@ from pygame.sprite import Sprite
 from settings import *
 from random import randint
 from random import random
-
+import random
 
 vec = pg.math.Vector2
 
@@ -33,6 +33,7 @@ class Player(Sprite):
         #     self.acc.y = PLAYER_ACC
         if keystate[pg.K_d]:
             self.acc.x = PLAYER_ACC
+            # allows the player to move a set distance that acts like a dash
         if keystate[pg.K_LCTRL]:
             if keystate[pg.K_d]:
                 self.pos.x += DASHDISTANCE
@@ -125,10 +126,32 @@ class Mob(Sprite):
         self.pos += self.vel
         self.rect.center = self.pos
     def dash(self):
-        for rng in range(1):
-            rng = random.randint[0,100]
-            if rng >=0 and rng <= 25:
-                self.pos.x += MOB_DASH
+        movement_choices = {"dash left", "dash right", "dash up", "dash down"}
+        Mob_decision = movement_choices[randint(0,3)]
+        if Mob_decision:"dash left"
+        self.pos.x -= MOB_DASH
+        print("the mob has dashed to the left")
+        if Mob_decision:"dash right"
+        self.pos.x += MOB_DASH
+        print("the mob has dashed to the right")
+        if Mob_decision: "dash up"
+        self.pos.y -= MOB_DASH
+        print("the mob has dashed upwards")
+        if Mob_decision: "dash down"
+        self.pos.y += MOB_DASH
+        print("the mob has dashed downwards")
+        
+
+            # rng = random.randint(0,100)
+            # print(rng)
+            # if rng >=0 and rng <=25:
+            #     self.pos.x += MOB_DASH
+            #     self.pos.y = 0
+            #     print("mob has sucessfully dashed on the x-axis")
+            # if rng > 35 and rng <=50:
+            #     self.pos.x = 0
+            #     self.pos.y += MOB_DASH
+            #     print("mob has successfully dashed on the y-axis")
 # create a new platform class...
 
 class Platform(Sprite):
