@@ -126,32 +126,32 @@ class Mob(Sprite):
         self.pos += self.vel
         self.rect.center = self.pos
     def dash(self):
-        movement_choices = {"dash left", "dash right", "dash up", "dash down"}
-        Mob_decision = movement_choices[randint(0,3)]
-        if Mob_decision:"dash left"
-        self.pos.x -= MOB_DASH
-        print("the mob has dashed to the left")
-        if Mob_decision:"dash right"
-        self.pos.x += MOB_DASH
-        print("the mob has dashed to the right")
-        if Mob_decision: "dash up"
-        self.pos.y -= MOB_DASH
-        print("the mob has dashed upwards")
-        if Mob_decision: "dash down"
-        self.pos.y += MOB_DASH
-        print("the mob has dashed downwards")
-        
 
-            # rng = random.randint(0,100)
-            # print(rng)
-            # if rng >=0 and rng <=25:
-            #     self.pos.x += MOB_DASH
-            #     self.pos.y = 0
-            #     print("mob has sucessfully dashed on the x-axis")
-            # if rng > 35 and rng <=50:
-            #     self.pos.x = 0
-            #     self.pos.y += MOB_DASH
-            #     print("mob has successfully dashed on the y-axis")
+
+        # for rng in range():
+        #     rng = random.randint(0,100)
+        #     if rng <=25:
+        #         self.pos.x += MOB_DASH
+        #         print("Mob dashed positive x")
+        #     if rng >=25 and rng <=40:
+        #         self.pos.x -= MOB_DASH 
+        #         print("Mob dashed negative x")
+
+
+        # movement_choices = {"dash left", "dash right", "dash up", "dash down"}
+        # Mob_decision = movement_choices[randint(0,3)]
+        # if Mob_decision == "dash left":
+        #     self.pos.x -= MOB_DASH
+        #     print("the mob has dashed to the left")
+        # if Mob_decision == "dash right":
+        #     self.pos.x += MOB_DASH
+        #     print("the mob has dashed to the right")
+        # if Mob_decision == "dash up":
+        #     self.pos.y -= MOB_DASH
+        #     print("the mob has dashed upwards")
+        # if Mob_decision == "dash down":
+        #     self.pos.y += MOB_DASH
+        #     print("the mob has dashed downwards")
 # create a new platform class...
 
 class Platform(Sprite):
