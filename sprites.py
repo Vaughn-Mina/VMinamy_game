@@ -125,8 +125,6 @@ class Mob(Sprite):
         # self.pos.y += self.vel.y
         self.pos += self.vel
         self.rect.center = self.pos
-    def dash(self):
-
 
         # for rng in range():
         #     rng = random.randint(0,100)

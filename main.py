@@ -26,6 +26,10 @@ add enemies randomly dashing in any direction
 Reach goal:
 add key command that moves character certain distance 
 assign values to dash directions
+add animations and sprites to make my own character
+    -attack animation
+    -dash animation
+    -death animation
 '''
 
 # import libs
