@@ -126,6 +126,7 @@ class Mob(Sprite):
         self.pos += self.vel
         self.rect.center = self.pos
 
+# attempts to add rng to the mobs
         # for rng in range():
         #     rng = random.randint(0,100)
         #     if rng <=25:
